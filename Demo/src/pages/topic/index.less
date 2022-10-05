@@ -1,0 +1,25 @@
+@content_min_height: 60vh;
+
+.topic-container {
+  min-height: @content_min_height;
+
+  .topic-content {
+    // padding: 0 @aplus-page-content-padding-right 10px @aplus-page-content-padding-left; // top right dowm left
+    height: auto;
+
+    .body-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: @content_min_height;
+    }
+
+    .create-button {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

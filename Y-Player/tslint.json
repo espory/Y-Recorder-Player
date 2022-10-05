@@ -1,0 +1,17 @@
+{
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "extends": ["tslint-react", "tslint-config-standard", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts", "coverage/lcov-report/*.js"]
+  },
+  "rules": {
+    "jsx-no-lambda": false,
+    "prettier": [
+      true,
+      {
+        "jsx-boolean-value": "never",
+        "singleQuote": true
+      }
+    ]
+  }
+}

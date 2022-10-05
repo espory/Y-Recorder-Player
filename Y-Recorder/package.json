@@ -1,0 +1,69 @@
+{
+  "name": "session-recorder",
+  "version": "1.1.1",
+  "description": "Record every movement in web",
+  "main": "dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "lint": "npx tslint src/**/*",
+    "dev": "npx webpack-dev-server --inline --config build/dev.js",
+    "prebuild": "rimraf dist",
+    "commit": "npx git-cz",
+    "build": "webpack --inline --config build/prod.js",
+    "release": "npm run build && git add .&& npx release-it",
+    "gen": "rimraf dist && npx webpack --config build/prod.js && npm run cp",
+    "cp": "cpy './dist/index.js' '/Users/espory/bowen/demo/yrecord-aplus-web/dist/y-record/'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:waynecz/session-recorder.git"
+  },
+  "keywords": [
+    "feedback",
+    "heatmap",
+    "analysis",
+    "uirecord"
+  ],
+  "files": [
+    "dist"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "author": "waynecz <451578533@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^7.3.2",
+    "@commitlint/config-conventional": "^7.3.1",
+    "@types/node": "^17.0.35",
+    "awesome-typescript-loader": "^5.2.1",
+    "commitizen": "^3.0.5",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^0.28.10",
+    "cz-conventional-changelog": "^2.1.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.14.3",
+    "release-it": "^10.0.1",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-loader": "^3.6.0",
+    "tslint-plugin-prettier": "^2.0.0",
+    "typescript": "^3.1.3",
+    "uglifyjs-webpack-plugin": "^2.0.0",
+    "webpack": "^4.19.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "cpy-cli": "^4.1.0",
+    "dts-bundle": "^0.7.3"
+  }
+}

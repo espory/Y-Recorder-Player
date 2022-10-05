@@ -1,0 +1,6 @@
+.rpt2_cache
+node_modules
+.idea
+dist
+# package-lock.json
+.DS_Store

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ui-recoder</title>
+
+    <style>
+      body {
+        height: 2000px;
+      }
+      ul {
+        height: 200px;
+        overflow: scroll;
+        line-height: 2;
+      }
+    </style>
+
+    <script>
+      const promise = async () => {
+        return Promise.reject('dsadad')
+      }
+      window.unhandleReject = () => {
+        console.log('reject')
+        promise().then(console.log)
+      }
+    </script>
+  </head>
+
+  <body>
+    <ul>
+      <li onclick="console.log(widn.xxx.xxxx)">simple error</li>
+      <li onclick="window.unhandleReject()">simple rejection</li>
+      <li id="errClick">error in other file</li>
+      <li id="rejectClick">rejection in other file</li>
+      <li>content 5</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+      <li>content 6</li>
+    </ul>
+    <form>
+      <div class="input"><input type="text" /></div>
+      <div class="radio"><input type="radio" name="a" /><input type="radio" name="a" /></div>
+    </form>
+
+    <!-- <iframe src="https://god.faas.elenet.me" frameborder="0"></iframe> -->
+
+    <div contenteditable>venom a <a href="://baidu.com">baidu</a></div>
+
+    <div contenteditable=""></div>
+
+    <script>
+      setTimeout(() => {
+        const xhr = new XMLHttpRequest()
+
+        xhr.open('GET', 'https://god.faas.elenet.me/api/apis/v1/user?a=1&b=2')
+
+        xhr.withCredentials = true
+
+        // xhr.setRequestHeader('X-ELEME-ID', 'fakeid')
+        // xhr.setRequestHeader('Content-Type', 'application/json;UTF-8')
+
+        xhr.send(JSON.stringify({ a: 2 }))
+      }, 1000)
+
+      setTimeout(() => {
+        const xhr = new XMLHttpRequest()
+
+        fetch('https://god.faas.elenet.me/api/apis/v1/user', {
+          headers: {
+            'Content-Type': 'application/xxx;UTF-8'
+          },
+          credentials: 'include'
+        })
+      }, 1000)
+    </script>
+  </body>
+</html>

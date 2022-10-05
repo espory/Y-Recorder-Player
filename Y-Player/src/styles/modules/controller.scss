@@ -1,0 +1,117 @@
+@include block(controller) {
+  position: relative;
+  z-index: 2;
+  $progress-height: 5px;
+  overflow: hidden;
+  grid-area: controller;
+  display: flex;
+  align-items: center;
+
+  @include when(full) {
+    @include element(time) {
+      color: $dark;
+    }
+  }
+
+  @include element(progress) {
+    --percent: 0%;
+    --trasnsition: 0.2s linear;
+
+    position: relative;
+    flex-grow: 1;
+    padding: 15px 0;
+    height: $progress-height;
+    background: $dark;
+    background-clip: content-box;
+    cursor: pointer;
+    box-sizing: content-box;
+
+    &::before {
+      // 高亮色进度条
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: $progress-height;
+      background-color: mix($primary, #333, 80);
+      transform: tx(calc(var(--percent) - 100%));
+      transition: var(--trasnsition);
+      contain: style;
+    }
+
+    @include when(jumping) {
+      transition: none;
+      pointer-events: none;
+
+      &::before {
+        transition: 0s linear;
+        background-color: $dark;
+      }
+
+      @include element(button) {
+        transition: 0s linear;
+        background-color: $dark;
+        box-shadow: none;
+      }
+    }
+  }
+
+  @include element(button) {
+    $color: mix($primary, #fff, 90);
+
+    position: absolute;
+    top: 8px;
+    @include circle(21px, $color);
+    will-change: left;
+    left: calc(var(--percent) - 10px);
+    box-shadow: 0 0 10px mix($color, #333, 50);
+    transition: var(--trasnsition);
+    cursor: pointer;
+
+    &:hover {
+      background: mix($primary, #fff, 80);
+    }
+  }
+
+  @include element(ruler) {
+    position: absolute;
+    width: 0;
+    height: $progress-height;
+    display: none;
+    transform: tx(0);
+
+    &::before,
+    &::after {
+      // path base on index.scss
+      content: '';
+      position: absolute;
+      display: block;
+      width: 7px;
+      height: 8px;
+      background-image: url('../assets/triangle.svg');
+      left: -3.5px;
+    }
+
+    &::before {
+      top: 0;
+      transform: ty(-16px) rotate(-90deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: ty(18px) rotate(90deg);
+    }
+  }
+
+  @include element(time) {
+    margin-left: 20px;
+    font-weight: 100;
+    font-size: 12px;
+    color: $white;
+  }
+
+  @include element(actions) {
+    margin-left: 2%;
+    margin-right: 0.5%;
+    flex-grow: 0;
+  }
+}

@@ -1,0 +1,173 @@
+@host = http://localhost:7001
+@token = adsfasdfasdfadsfasdfasdfas
+
+### 注册
+POST {{host}}/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "username":"test",
+    "password":"curidemo"
+}
+
+### 登录
+
+POST {{host}}/auth/login  HTTP/1.1
+content-type: application/json
+
+{
+    "username":"test",
+    "password":"curidemo"
+}
+
+# 项目相关
+### 获取项目列表### 增
+POST {{host}}/projects/create  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "username":"test",
+    "projectName":"Aplus 项目"
+}
+
+### 删
+POST {{host}}/projects/delete  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"62628751d1810f1f6dd53603"
+}
+
+### 查
+POST {{host}}/projects/get  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"62628751d1810f1f6dd53603"
+}
+
+### 查全
+POST {{host}}/projects/getAll  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "username":"test"
+}
+
+### 改
+POST {{host}}/projects/update  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"62628751d1810f1f6dd53603",
+    "projectName":"YBW"
+}
+
+
+
+# record 相关
+### 增
+POST {{host}}/records/create  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "username":"test",
+    "projectName":"Aplus 项目",
+    "projectId":"62628751d1810f1f6dd53603",
+    "recordName":"测试条例",
+    "detail":"这是一个测试条例",
+    "link":"http://www.baidu.com",
+    "email":"bwyang@fudan.edu.cn",
+    "snapshot":{},
+    "operation":[]
+}
+
+### 删
+POST {{host}}/records/delete  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"6262667f2eca6c105ffd5e49"
+}
+
+### 查
+POST {{host}}/records/get  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"628b6d4f1fde64d672cf7769"
+}
+
+### 查全
+POST {{host}}/records/getAll  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "projectId":"628b6d4f1fde64d672cf7769"
+}
+
+### 改
+POST {{host}}/records/update  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"628b6d4f1fde64d672cf7769",
+    "startTime":123
+}
+
+
+### 查 fetchRecord
+POST {{host}}/records/getFetchRecord  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"628b6d4f1fde64d672cf7769"
+}
+
+### 查 时间
+POST {{host}}/records/getTime  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"628b6d4f1fde64d672cf7769"
+}
+
+### 查 files
+POST {{host}}/records/getFiles  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"628b6d4f1fde64d672cf7769"
+}
+### 清空 fetchRecord
+POST {{host}}/records/clear  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"628b6d4f1fde64d672cf7769"
+}
+
+### 插入 fetchRecord
+POST {{host}}/records/insertFetchRecord  HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.dGVzdA.GfxRk-CtH6rXPrQstXkm8pkjEhPFO1h5kFEBciCZN48
+
+{
+    "_id":"628b6d4f1fde64d672cf7769",
+    "k":"name",
+    "v":"ybw"
+}

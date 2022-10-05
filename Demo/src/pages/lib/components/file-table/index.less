@@ -1,0 +1,76 @@
+.squash-drawer {
+  position: absolute;
+  left: -12px;
+  top: 300px;
+  z-index: 1001;  // higher than drawer
+  background-color: white;
+  color: #ccc;
+  font-size: 24px;
+  height: 24px;
+  transition: color 0.5s;
+  cursor: pointer;
+}
+
+// 为了让drawer中的按钮能够显示
+.ant-drawer-content {
+  overflow: visible !important;
+}
+
+.squash-drawer:hover {
+  color: #4e8ac7;
+}
+
+.ant-rate-star {
+  margin-right: 2px !important;
+}
+
+.icon-pdf {
+  color: @primary-color;
+  margin-right: 5px;
+}
+
+.btn-svg .ant-btn-icon-only {
+  display: flex;
+}
+
+.empty-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+
+.aplus-upload {
+  .ant-btn-primary {
+    padding: 0;
+  }
+
+  .warpper {
+    position: relative;
+    padding: 0 7px;
+  }
+
+  .input-file {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    width: 100%;
+    // font-size: 0;
+  }
+}
+
+.drag-block {
+  background-color: rgb(239, 239, 239);
+  border: 2px dashed grey;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  opacity: 0.95;
+  position: relative;
+}
+
+.table-pos {
+  position: relative;
+}

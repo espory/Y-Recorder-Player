@@ -1,0 +1,37 @@
+@content_min_height: 80vh;
+@content_padding_left:20px;
+@content_padding_right:20px;
+
+.lib-container {
+  min-height: @content_min_height;
+  border-left: 1px solid #e5e5e5;
+
+  .lib-breadcrumb {
+    background-color: #fff;
+    padding: 10px 20px;
+  }
+
+  .lib-header {
+    margin-top: 5px;
+    background-color: #fff;
+  }
+
+  .lib-body {
+    min-height: @content_min_height;
+    background-color: #fff;
+
+    .tool {
+      margin-bottom: 10px;
+    }
+
+    .table-foot {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0 0 0;
+
+      span {
+        color: #909090;
+      }
+    }
+  }
+}

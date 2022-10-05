@@ -1,0 +1,184 @@
+@include block(screen) {
+  position: relative;
+  grid-area: screen;
+  display: flex;
+  background: #0c0029;
+  filter: blur(0px);
+  transition: 1s $perfect-timing;
+
+  @include when(blur) {
+    filter: blur(10px);
+  }
+
+  @include when(full) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+  }
+
+  @include element(spinner) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+
+    &::after {
+      content: '';
+      display: block;
+      @include circle(60px);
+      border: 7px solid $secondary;
+      border-right-color: transparent;
+      margin: auto;
+      will-change: transform;
+      animation: spin 1s ease-out infinite;
+    }
+
+    @include when(hidden) {
+      display: none;
+    }
+  }
+
+  @include element(error) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+
+    > .icon {
+      margin: auto;
+      color: $secondary;
+      font-size: 60px;
+    }
+
+    @include when(visible) {
+      display: flex;
+    }
+  }
+
+  @include element(actions) {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    padding-right: 20px;
+    right: 0;
+
+    > .button {
+      opacity: .6;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include element(canvas) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    transform: translate(-50%, -50%);
+    contain: strict;
+    opacity: 1;
+    transition: 0.2s $perfect-timing opacity;
+    counter-reset: click;
+
+    > .fill {
+      position: absolute;
+      contain: strict;
+    }
+  }
+
+  @include element(mouse) {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 80px;
+    background-image: url('../assets/mouse.svg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: -6px -4px;
+    contain: strict;
+    will-change: transform;
+    transition: 0.05s linear;
+    overflow: visible;
+
+    @include when(visible) {
+      display: block;
+    }
+  }
+
+  @include element(click) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: txy(-50%, -50%);
+    @include circle(10px, rgba(68, 0, 255, 0.35));
+    border: 10px solid rgba(68, 0, 255, 0.8);
+    box-sizing: content-box;
+    transition: 1s cubic-bezier(0.04, 0.72, 0.23, 1.02);
+
+    @include when(active) {
+      width: 70px;
+      height: 70px;
+      border-width: 1px;
+      opacity: 0;
+    }
+
+    &:hover {
+      width: 80px;
+      height: 80px;
+      border-width: 1px;
+      opacity: 0;
+    }
+  }
+}
+
+.ybw{
+
+position: absolute;
+z-index: 2;
+top: 0;
+left: 0;
+width: 30px;
+height: 80px;
+background-image: url('../assets/mouse.svg');
+background-size: 100% auto;
+background-repeat: no-repeat;
+background-position: -6px -4px;
+contain: strict;
+will-change: transform;
+transition: 0.05s linear;
+overflow: visible;
+
+
+position: absolute;
+top: 0;
+left: 0;
+transform: txy(-50%, -50%);
+width: 10px;
+height: 10px;
+background: rgba(68, 0, 255, 0.35);
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+border: 10px solid rgba(68, 0, 255, 0.8);
+box-sizing: content-box;
+transition: 1s cubic-bezier(0.04, 0.72, 0.23, 1.02);
+
+}
+
+

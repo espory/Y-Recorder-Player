@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <% if(chunk==='commons'||chunk==='markdown') {%> 
+  <script type="text/javascript" src="<%=`http://aplus2.y-droid.com/aplusFiles${htmlWebpackPlugin.files.chunks[chunk].entry}` %>"></script>
+  <% } else {%>
+  <% } %>
+  <% } %>
+</body>
+<!-- size：二维码尺寸 positionRight 和 positionTop：二维码距离右边框、下边框距离 -->
+<script  id="QRcode" src="http://www.y-droid.com/feedback/QRcode.js" positionRight="20" positionBottom='20' size='115'></script>
+
+</html>

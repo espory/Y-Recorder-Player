@@ -1,0 +1,121 @@
+.upload-block {
+  border: 1px dashed #d9d9d9;
+  border-radius: 2px;
+  text-align: center;
+  background-color: #fafafa;
+}
+
+.dragger-block {
+  padding: 10px;
+  transition: border-color 0.3s;
+
+  .dragger-block-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: @primary-color;
+  }
+
+  .dragger-block-text {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+
+    .file_upload {
+      opacity: 0;
+
+      /* IE 8 */
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+
+      /* IE 5-7 */
+      filter: alpha(opacity=0);
+
+      /* Netscape or and older firefox browsers */
+      -moz-opacity: 0;
+
+      /* older Safari browsers */
+      -khtml-opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.dragger-block:hover {
+  border-color: @primary-color;
+  cursor: pointer;
+}
+
+.input-block {
+  position: relative;
+
+  .close-block {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    .close-icon {
+      font-size: 20px;
+      cursor: pointer;
+      color: #d9d9d9;
+    }
+
+    .close-icon:hover {
+      color: #7d7d7d;
+    }
+  }
+}
+
+.file-list-block {
+  padding: 15px;
+  border-color: @primary-color;
+
+  .file-icon-block {
+    margin-bottom: 10px;
+    position: relative;
+
+    .file-icon {
+      color: @primary-color;
+      font-size: 35px;
+    }
+
+    .delete-mask {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      font-size: 20px;
+      visibility: hidden;
+
+      .delete-icon {
+        transform: translate3d(-50%, 0, 0);
+        color: #d4380d;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .file-icon-block:hover {
+    .file-icon {
+      opacity: 0.5;
+    }
+
+    .delete-mask {
+      visibility: visible;
+    }
+  }
+
+  .file-name {
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.border-style-dashed {
+  border-style: dashed;
+}

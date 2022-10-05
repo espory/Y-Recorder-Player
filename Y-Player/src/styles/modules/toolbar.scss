@@ -1,0 +1,19 @@
+@include block(toolbar) {
+  grid-area: toolbar;
+  display: flex;
+  align-items: center;
+
+  @include element(heading) {
+    font-size: 50px;
+    font-weight: 400;
+    text-indent: 10px;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @include element(actions) {
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+}

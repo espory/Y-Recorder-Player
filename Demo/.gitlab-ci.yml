@@ -1,0 +1,32 @@
+stages:
+  - deploy
+
+# 当 master 分支有合并时，仍然使用 test 服务器，但是打包后的前端部署到 prod 服务器上
+deploy_prod:
+  stage: deploy
+  script:
+    - cnpm install
+    - npm run lint
+    - npm run deploy
+  tags:
+    - test
+  only:
+    - master
+  except:
+    - merge_requests
+
+# 当 dev 或者 ci 分支有合并时，仍然使用 test 服务器，但是打包后的前端部署到 test 服务器上
+deploy_test:
+  stage: deploy
+  script:
+    - cnpm install
+    - npm run lint
+    - npm run deploy_test
+  tags:
+    - test
+  only:
+    - dev
+    - ci
+  except:
+    - merge_requests
+
